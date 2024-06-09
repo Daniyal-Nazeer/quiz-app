@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    
+    <div class="quize_sec">
+    <div id="quiz"></div>
+    <button id="nextButton">Next</button>
+
+    <script>
+     const div = document.querySelector("#quiz");
+     const nextButton = document.querySelector("#nextButton");
+
+     let currentQuestion = 0;
+     let score = 0;
+     let questions = [];
+
+     const renderQuestion = () => {
+        const question = questions[currentQuestion];
+        const ansChoise = [...question.incorrectAnswers, question.correctAnswer];
+        for(let i = ansChoise.length-1; i > 0; i--){
+            const j = Math.floor(Math.random() * (i + 1));
+            [ansChoise[i], ansChoise[j]] = [ansChoise[j], ansChoise[i]];
+        }
+
+        div.innerHTML = `
+        <h1>Q${currentQuestion+1}. ${question.question.text}</h1>
+        <ul>
+            ${ansChoise.map(answer => `<li><input type="radio" name="answer" value="${answer}">${answer}</li>`).join('')}
+        </ul>`;
+     };
+
+     const getQuiz = async () => {
+        try{
+            const data = await fetch("https://the-trivia-api.com/v2/questions");
+            const res = await data.json();
+            questions = res;
+            renderQuestion();
+        }
+        catch(error){
+            console.error(error);
+        }     
+     };
+
+     nextButton.addEventListener('click', () => {
+        const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+        if (selectedAnswer) {
+            const userAnswer = selectedAnswer.value;
+            const correctAnswer = questions[currentQuestion].correctAnswer;
+
+            if (userAnswer === correctAnswer) {
+                score++;
+            }
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                renderQuestion();
+            } else {
+                div.innerHTML = `<h1>End of Quiz</h1><p>Your score is: ${score}/10</p>`;
+            }
+        } else {
+            alert("Please select an answer before proceeding.");
+        }
+     });
+
+     getQuiz();
+
+    </script>
+</div>
+</body>
+</html>

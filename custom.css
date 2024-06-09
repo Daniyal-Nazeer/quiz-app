@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background: #c0c0c0; 
+  font-family: Raleway, sans-serif;
+  color: #666;
+}
+
+
+
+.login {
+  margin: 100px auto;
+  padding: 60px 50px;
+  max-width: 300px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 1px 1px 1px #666;
+}
+  .login input {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin: 10px 0;
+    padding: 14px 12px;
+    font-size: 16px;
+    border-radius: 2px; 
+    font-family: Raleway, sans-serif;
+  }
+
+.login input[type=text],
+.login input[type=password] {
+  border: 1px solid #c0c0c0;
+  transition: .2s;
+}
+
+.login input[type=text]:hover {
+  border-color: #F44336;
+  outline: none;
+  transition: all .2s ease-in-out;
+} 
+
+input[type="email"]:hover {
+    border-color: #F44336;
+    outline: none;
+    transition: all .2s ease-in-out;
+}
+
+input[type="password"]:hover {
+    border-color: #F44336;
+    outline: none;
+    transition: all .2s ease-in-out;
+}
+
+input[type="email"] {
+    border: 1px solid #0006;
+}
+
+button{
+    border: none;
+  background: #EF5350;
+  color: white;
+  font-weight: bold;  
+  transition: 0.2s;
+  margin: 20px 0px;
+  cursor: pointer;
+}
+
+.login input[type=submit] {
+  border: none;
+  background: #EF5350;
+  color: white;
+  font-weight: bold;  
+  transition: 0.2s;
+  margin: 20px 0px;
+  cursor: pointer;
+}
+
+.login input[type=submit]:hover {
+  background: #F44336;  
+}
+
+  .login h2 {
+    margin: 20px 0 0; 
+    color: #EF5350;
+    font-size: 28px;
+  }
+
+.login p {
+  margin-bottom: 40px;
+}
+
+.links {
+  display: table;
+  width: 100%;  
+  box-sizing: border-box;
+  border-top: 1px solid #c0c0c0;
+  margin-bottom: 10px;
+}
+
+.links a {
+  display: table-cell;
+  padding-top: 10px;
+}
+
+.links a:first-child {
+  text-align: left;
+}
+
+.links a:last-child {
+  text-align: right;
+}
+
+  .login h2,
+  .login p,
+  .login a {
+    text-align: center;    
+  }
+
+.login a {
+  text-decoration: none;  
+  font-size: .8em;
+}
+
+.login a:visited {
+  color: inherit;
+}
+
+.login a:hover {
+  text-decoration: underline;
+}
+
+
+.quize_sec {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 100px;
+  background: #fff;
+  padding: 35px 60px;
+  border-radius: 15px;
+}
+
+
+
+.quize_sec h1 {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: monospace;
+  line-height: 1.9;
+}
+
+.quize_sec ul {
+  list-style: none;
+  margin: 15px 0;
+}
+
+.quize_sec ul {
+  list-style: none;
+  margin: 15px 0;
+}
+
+.quize_sec ul li {
+  margin: 15px 0;
+  border: 1px solid #0003;
+  width: 30%;
+  border-radius: 9px;
+  padding: 15px 20px;
+}
+
+button#nextButton {
+  padding: 20px 90px;
+  border-radius: 7px;
+}

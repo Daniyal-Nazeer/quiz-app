@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+
+    <form class="login">
+        <h2>Welcome, User!</h2>
+        <p>Please log in</p>
+        <input type="text" id="username" placeholder="User Name"/>
+        <input type="password" id="password" placeholder="Password" />
+        <input type="submit" id="log" value="Log In" />
+        <div class="links">
+          <a href="register.html">Register</a>
+        </div>
+      </form>
+
+  <script>
+  
+  // User Loing 
+
+
+function login(e){
+
+  e.preventDefault();
+
+    const userName = document.getElementById('username').value;
+    const password = document.getElementById('password').value; 
+
+    if( userName === "" || password === "" ){
+        alert("Please Fill All Fields Required");
+        return;
+    }
+    const user = JSON.parse(localStorage.getItem(userName));
+    if(user){
+        if( user.password === password ){
+            // alert("User Loing Successful")
+            window.location.replace("quize.html");
+
+           
+        }
+        else{
+            alert("Incorrect Password")
+        }
+    }
+    else{
+        alert("User Not Found");
+    }       
+}
+
+log.addEventListener("click", login);
+  
+</script>
+  
+</body>
+</html>
